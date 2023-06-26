@@ -1,13 +1,6 @@
-let gif = document.createElement("img");
-document.body.appendChild(gif);
-
 fetch(
-  "https://api.giphy.com/v1/gifs/translate?api_key=ZqIKvv15hAXZjKYwJy5fraKl9gQhT0DF&s=cats",
+  "https://api.weatherapi.com/v1/current.json?key=fb9920be55e14572b69130147232506&q=London&aqi=no",
   { mode: "cors" }
-)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (response) {
-    gif.src = response.data.images.original.url;
-  });
+).then(function (response) {
+  console.log(response.json());
+});
