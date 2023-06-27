@@ -5,6 +5,7 @@ module.exports = {
   mode: "development",
   context: path.resolve(__dirname, "src"),
   entry: {
+    form: "./js/form.js",
     index: "./js/index.js",
   },
   devtool: "inline-source-map",
