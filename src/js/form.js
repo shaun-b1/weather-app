@@ -1,3 +1,4 @@
+import { queryWeatherAPI } from "./weatherAPI";
 export { form };
 
 function form() {
@@ -19,18 +20,7 @@ function form() {
   button.textContent = "Search";
   button.setAttribute("type", "submit");
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    new FormData(form);
-  });
-  form.addEventListener("formdata", (e) => {
-    console.log("it's working!");
-
-    const data = e.formData;
-    for (const value of data.values()) {
-      console.log(value);
-    }
-  });
+  form.addEventListener("submit", queryWeatherAPI);
 
   searchDiv.append(searchLabel, searchInput);
   form.append(searchDiv, button);
