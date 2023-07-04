@@ -27,8 +27,3 @@ function form() {
 
   return form;
 }
-
-// function testFormDataObject() {
-//     const formData = new FormData(form)
-//     console.log(formData)
-// }

@@ -1,4 +1,7 @@
-export async function queryWeatherAPI(e) {
+import { ui } from "./weatherDisplay";
+export { queryWeatherAPI, displayResults };
+
+async function queryWeatherAPI(e) {
   const searchInput = document.getElementById("search");
 
   e.preventDefault();
@@ -11,10 +14,23 @@ export async function queryWeatherAPI(e) {
     const response = await fetch(url);
     const data = await response.json();
 
-    console.log(data);
+    displayResults(data, searchQuery);
   } catch (error) {
     console.log("An error has occurred: ", error);
   }
 }
 
-// Destructure the Promise object to access the data: https://www.youtube.com/watch?v=Mus_vwhTCq0 @3:30
+function displayResults(data) {
+  if (data.location && data.location.name) {
+    console.log(data);
+    document.body.appendChild(ui(data));
+  } else {
+    console.log("No results found");
+  }
+}
+
+// check what console.log logs, so you can accurately figure out what is being returned in searchQuery
+
+// build a GUI for returning the results. Don't worry about style, just return a box with  temp, feels like, wind, precip, UV, Humidity
+
+// npm cities.json; how does it work, can we use that to input searchQueries?
