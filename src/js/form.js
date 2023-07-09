@@ -1,11 +1,15 @@
-import { queryWeatherAPI } from "./weatherAPI";
+import { askWeatherAPI } from "./weatherAPI";
 export { form };
 
 function form() {
+  const searchSection = document.createElement("section");
+  searchSection.classList.add("search");
+
   const form = document.createElement("form");
+  form.classList.add("search__form");
 
   const searchDiv = document.createElement("div");
-  searchDiv.classList.add("search");
+  searchDiv.classList.add("search__bar");
 
   const searchLabel = document.createElement("label");
   searchLabel.setAttribute("for", "search");
@@ -20,10 +24,11 @@ function form() {
   button.textContent = "Search";
   button.setAttribute("type", "submit");
 
-  form.addEventListener("submit", queryWeatherAPI);
+  form.addEventListener("submit", askWeatherAPI);
 
   searchDiv.append(searchLabel, searchInput);
   form.append(searchDiv, button);
+  searchSection.appendChild(form);
 
-  return form;
+  return searchSection;
 }

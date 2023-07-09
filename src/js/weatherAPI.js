@@ -1,7 +1,7 @@
 import { ui } from "./weatherDisplay";
-export { queryWeatherAPI, displayResults };
+export { askWeatherAPI, displayResults };
 
-async function queryWeatherAPI(e) {
+async function askWeatherAPI(e) {
   const searchInput = document.getElementById("search");
 
   e.preventDefault();
@@ -22,7 +22,6 @@ async function queryWeatherAPI(e) {
 
 function displayResults(data) {
   if (data.location && data.location.name) {
-    console.log(data);
     document.body.appendChild(ui(data));
   } else {
     console.log("No results found");
