@@ -1,42 +1,50 @@
-export { ui };
+export { ui }
 
 function ui(data) {
-  const { current } = data;
+  const { current, location, forecast } = data
 
-  const container = document.createElement("section");
-  container.classList.add("display");
+  const container = document.createElement('section')
+  container.classList.add('display')
 
-  const temp = document.createElement("div");
-  temp.classList.add("display__component");
-  temp.classList.add("display__component--temp");
-  temp.textContent = `${current.temp_c}°`;
+  const temp = document.createElement('div')
+  temp.classList.add('display__component')
+  temp.classList.add('display__component--temp')
+  const tempText = document.createElement('h1')
+  tempText.textContent = `It is currently ${current.temp_c}°C in ${location.name}`
+  temp.appendChild(tempText)
 
-  const feelsLike = document.createElement("div");
-  feelsLike.classList.add("display__component");
-  feelsLike.classList.add("display__component--feels-like");
-  feelsLike.textContent = `Feels like: ${current.feelslike_c}°`;
+  const feelsLike = document.createElement('div')
+  feelsLike.classList.add('display__component')
+  feelsLike.classList.add('display__component--feels-like')
 
-  const wind = document.createElement("div");
-  wind.classList.add("display__component");
-  wind.classList.add("display__component--wind");
-  wind.textContent = `Wind: ${current.wind_kph} ${current.wind_dir}`;
+  feelsLike.textContent = `Feels like: ${current.feelslike_c}°`
 
-  const precip = document.createElement("div");
-  precip.classList.add("display__component");
-  precip.classList.add("display__component--precip");
-  precip.textContent = `Precipitation: ${current.precip_mm}mm`;
+  const wind = document.createElement('div')
+  wind.classList.add('display__component')
+  wind.classList.add('display__component--wind')
+  wind.textContent = `Wind: ${current.wind_kph}kph ${current.wind_dir}`
 
-  const uv = document.createElement("div");
-  uv.classList.add("display__component");
-  uv.classList.add("display__component--uv");
-  uv.textContent = `UV Index: ${current.uv}`;
+  const precip = document.createElement('div')
+  precip.classList.add('display__component')
+  precip.classList.add('display__component--precip')
+  precip.textContent = `Precipitation: ${current.precip_mm}mm`
 
-  const humidity = document.createElement("div");
-  humidity.classList.add("display__component");
-  humidity.classList.add("display__component--humidity");
-  humidity.textContent = `Humidity: ${current.humidity}%`;
+  const uv = document.createElement('div')
+  uv.classList.add('display__component')
+  uv.classList.add('display__component--uv')
+  uv.textContent = `UV Index: ${current.uv}`
 
-  container.append(temp, feelsLike, wind, precip, uv, humidity);
+  const humidity = document.createElement('div')
+  humidity.classList.add('display__component')
+  humidity.classList.add('display__component--humidity')
+  humidity.textContent = `Humidity: ${current.humidity}%`
 
-  return container;
+  const dayForecast = document.createElement('div')
+  dayForecast.classList.add('display__component')
+  dayForecast.classList.add('display__component--forecast')
+  dayForecast.textContent = `forecast: ${forecast.forecastday[0].day.maxtemp_c}°C`
+
+  container.append(temp, feelsLike, wind, precip, uv, humidity, dayForecast)
+
+  return container
 }

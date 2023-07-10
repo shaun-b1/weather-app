@@ -1,64 +1,82 @@
+@font-face {
+    font-family: futura;
+    src: url(../assets/Futura-Font-Family/futur.ttf);
+}
+
+* {
+    font-family: futura, sans-serif;
+}
+
 body {
-    background: url('../assets/3E164259-F4FF-4FF2-BEAD-3D75BE72882D_1_105_C.jpEg') center center/cover no-repeat fixed;
+  background: url('../assets/3E164259-F4FF-4FF2-BEAD-3D75BE72882D_1_105_C.jpEg')
+    center center/cover no-repeat fixed;
 }
 
 @mixin card {
-    border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    backdrop-filter: blur(5px);
-    padding: 0.5rem;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  backdrop-filter: blur(5px);
+  padding: 0.5rem;
 }
 
 .search {
-    @include card;
-    margin: 1rem auto;
-    width: 50%;
+  @include card;
+  margin: 1rem auto;
+  width: 50%;
+}
 
-    .search__form {
-        display: flex;
-        justify-content: space-between;
-    }
+.form {
+  display: flex;
+  justify-content: space-between;
 }
 
 .display {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 65%;
-    height: 50%;
-    display: grid;
-    grid-template: repeat(3, minmax(100px, 1fr)) / repeat(4, minmax(100px, 1fr));
-    gap: 1rem;
-    grid-template-areas: "temp temp temp feels-like" "wind precip uv humidity" ". . . .";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  height: 50%;
+  display: grid;
+  grid-template: repeat(3, minmax(30px, 0.3fr)) / repeat(4, minmax(100px, 1fr));
+  gap: 1rem;
+  grid-template-areas: 'temp temp temp feels-like' 'wind precip uv humidity' 'forecast forecast forecast forecast';
 
-    .display__component {
-        @include card;
+  .display__component {
+    @include card;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    &--temp {
+      grid-area: temp;
 
     }
-    
-    .display__component--temp {
-        grid-area: temp;
+
+    &--feels-like {
+      grid-area: feels-like;
     }
 
-    .display__component--feels-like {
-        grid-area: feels-like;
+    &--wind {
+      grid-area: wind;
     }
 
-    .display__component--wind {
-        grid-area: wind;
+    &--precip {
+      grid-area: precip;
     }
 
-    .display__component--precip {
-        grid-area: precip;
+    &--uv {
+      grid-area: uv;
     }
 
-    .display__component--uv {
-        grid-area: uv;
+    &--humidity {
+      grid-area: humidity;
     }
 
-    .display__component--humidity {
-        grid-area: humidity;
+    &--forecast {
+        grid-area: forecast;
     }
+  }
 }
