@@ -16,8 +16,9 @@ function ui(data) {
   const feelsLike = document.createElement('div')
   feelsLike.classList.add('display__component')
   feelsLike.classList.add('display__component--feels-like')
-
-  feelsLike.textContent = `Feels like: ${current.feelslike_c}°`
+  const feelsLikeText = document.createElement('p')
+  feelsLikeText.textContent = `Feels like: ${current.feelslike_c}°`
+  feelsLike.appendChild(feelsLikeText)
 
   const wind = document.createElement('div')
   wind.classList.add('display__component')

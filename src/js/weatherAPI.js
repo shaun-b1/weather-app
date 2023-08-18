@@ -22,6 +22,9 @@ async function askWeatherAPI(e) {
 
 function displayResults(data) {
   if (data.location && data.location.name) {
+    if (document.querySelector('.display')) {
+      document.querySelector('.display').remove()
+    }
     console.log(data)
     document.body.appendChild(ui(data))
   } else {

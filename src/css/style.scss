@@ -14,15 +14,15 @@ body {
 
 @mixin card {
   border-radius: 15px;
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   padding: 0.5rem;
 }
 
 .search {
   @include card;
-  margin: 1rem auto;
+  margin: 4rem auto;
   width: 50%;
 }
 
@@ -32,6 +32,7 @@ body {
 }
 
 .display {
+    // @include card;
   position: absolute;
   top: 50%;
   left: 50%;
