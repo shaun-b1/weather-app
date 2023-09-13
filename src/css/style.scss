@@ -1,3 +1,6 @@
+$material-icons-font-path: '~material-icons/iconfont/';
+@import 'material-icons/iconfont/material-icons.scss';
+
 @font-face {
     font-family: futura;
     src: url(../assets/Futura-Font-Family/futur.ttf);
@@ -8,7 +11,7 @@
 }
 
 body {
-  background: url('../assets/3E164259-F4FF-4FF2-BEAD-3D75BE72882D_1_105_C.jpEg')
+  background: url('../assets/829697_A green field of rolling hills, with a forest in t_xl-1024-v1-0.png')
     center center/cover no-repeat fixed;
 }
 
@@ -20,19 +23,51 @@ body {
   padding: 0.5rem;
 }
 
+@mixin focused-input {
+  &:focus-visible{ 
+    outline: none;
+    box-shadow: 0 0 0 1.5px rgba(0, 118, 214, 1) inset;
+  }
+}
+
 .search {
   @include card;
   margin: 4rem auto;
   width: 50%;
 }
 
-.form {
+.search__form {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  
+    .search__bar {
+      border: 1px solid grey;
+      border-radius: 10px 0 0 10px;
+      width: 70%;
+      padding-left: 0.8rem;
+      
+      &:focus {
+        @include focused-input();
+      }
+    }
+
+    .search__button {
+      border: 1px solid grey;
+      border-radius: 0 10px 10px 0;
+      width: 10%;
+
+      &:focus-visible {
+        outline: none;
+        box-shadow: none;
+      }
+
+      &:focus-visible{
+        @include focused-input()
+      }
+    }
 }
 
 .display {
-    // @include card;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -53,7 +88,6 @@ body {
 
     &--temp {
       grid-area: temp;
-
     }
 
     &--feels-like {

@@ -10,7 +10,7 @@ function ui(data) {
   temp.classList.add('display__component')
   temp.classList.add('display__component--temp')
   const tempText = document.createElement('h1')
-  tempText.textContent = `It is currently ${current.temp_c}°C in ${location.name}`
+  tempText.textContent = `It is currently ${current.temp_c}°C in ${location.name}, ${location.country}`
   temp.appendChild(tempText)
 
   const feelsLike = document.createElement('div')

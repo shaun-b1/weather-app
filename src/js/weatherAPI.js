@@ -2,7 +2,7 @@ import { ui } from './weatherDisplay'
 export { askWeatherAPI, displayResults }
 
 async function askWeatherAPI(e) {
-  const searchInput = document.getElementById('search')
+  const searchInput = document.getElementById('search__bar')
 
   e.preventDefault()
 
