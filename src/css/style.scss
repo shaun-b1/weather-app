@@ -1,8 +1,8 @@
-$material-icons-font-path: '~material-icons/iconfont/';
-@import 'material-icons/iconfont/material-icons.scss';
+$material-symbols-font-path: '~material-symbols/';
+@import 'material-symbols';
 
 @font-face {
-    font-family: futura;
+    font-family: 'futura';
     src: url(../assets/Futura-Font-Family/futur.ttf);
 }
 
@@ -24,10 +24,8 @@ body {
 }
 
 @mixin focused-input {
-  &:focus-visible{ 
     outline: none;
     box-shadow: 0 0 0 1.5px rgba(0, 118, 214, 1) inset;
-  }
 }
 
 .search {
@@ -46,7 +44,7 @@ body {
       width: 70%;
       padding-left: 0.8rem;
       
-      &:focus {
+      &:focus-visible {
         @include focused-input();
       }
     }
@@ -55,11 +53,6 @@ body {
       border: 1px solid grey;
       border-radius: 0 10px 10px 0;
       width: 10%;
-
-      &:focus-visible {
-        outline: none;
-        box-shadow: none;
-      }
 
       &:focus-visible{
         @include focused-input()
@@ -92,26 +85,77 @@ body {
 
     &--feels-like {
       grid-area: feels-like;
+
+      h5::before {
+        content: 'thermostat';
+      }
     }
 
     &--wind {
       grid-area: wind;
+
+      h5::before {
+        content: 'air';
+      }
     }
 
     &--precip {
       grid-area: precip;
+
+      h5::before {
+        content: 'water_drop';
+      }
     }
 
     &--uv {
       grid-area: uv;
+
+      h5::before {
+        content: 'clear_day';
+      }
     }
 
     &--humidity {
       grid-area: humidity;
+
+      h5::before {
+        content: 'airwave';
+      }
     }
 
     &--forecast {
         grid-area: forecast;
+
+        h5::before {
+          content: 'calendar_month';
+        }
+    }
+
+    h5::before {
+      font-family: 'Material Symbols Outlined';
+      display: inline-block;
+      height: 24px;
+      width: 24px;
+      font-size: 0.9rem;
+    }
+
+    h5 {
+      position: absolute;
+      display: inherit;
+      top: 5%;
+      left: 5%;
+      font-size: 0.9rem;
+    }
+
+    p {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+  
+    &:after {
+      content: '';
+      display: block;
+      height: 100%;
     }
   }
 }

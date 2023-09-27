@@ -16,7 +16,7 @@ function form() {
   searchInput.setAttribute('placeholder', 'Search for a location')
 
   const button = document.createElement('button')
-  button.classList.add('search__button', 'material-icons-outlined')
+  button.classList.add('search__button', 'material-symbols-outlined')
   button.textContent = 'search'
   button.setAttribute('type', 'submit')
 
