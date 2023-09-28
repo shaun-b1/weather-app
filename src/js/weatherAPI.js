@@ -8,7 +8,7 @@ async function askWeatherAPI(e) {
 
   const searchQuery = searchInput.value
   const apiKey = 'fb9920be55e14572b69130147232506'
-  const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchQuery}&days=4`
+  const url = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchQuery}&days=3`
 
   try {
     const response = await fetch(url)
@@ -16,24 +16,14 @@ async function askWeatherAPI(e) {
 
     displayResults(data, searchQuery)
   } catch (error) {
-    console.log('An error has occurred: ', error)
+    alert(`An error has occurred: ` + error)
   }
 }
 
 function displayResults(data) {
-  if (data.location && data.location.name) {
-    if (document.querySelector('.display')) {
-      document.querySelector('.display').remove()
-    }
-    console.log(data)
-    document.body.appendChild(ui(data))
-  } else {
-    console.log('No results found')
+  if (document.querySelector('.weather')) {
+    document.querySelector('.weather').remove()
   }
+  console.log(data)
+  document.body.appendChild(ui(data))
 }
-
-// check what console.log logs, so you can accurately figure out what is being returned in searchQuery
-
-// build a GUI for returning the results. Don't worry about style, just return a box with  temp, feels like, wind, precip, UV, Humidity
-
-// npm cities.json; how does it work, can we use that to input searchQueries?

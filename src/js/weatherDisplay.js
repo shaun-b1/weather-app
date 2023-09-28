@@ -4,18 +4,16 @@ function ui(data) {
   const { current, location, forecast } = data
 
   const container = document.createElement('section')
-  container.classList.add('display')
+  container.classList.add('weather')
 
   const temp = document.createElement('div')
-  temp.classList.add('display__component')
-  temp.classList.add('display__component--temp')
+  temp.classList.add('weather__temp')
   const tempText = document.createElement('h1')
   tempText.textContent = `It is currently ${current.temp_c}°C in ${location.name}, ${location.country}`
   temp.appendChild(tempText)
 
   const feelsLike = document.createElement('div')
-  feelsLike.classList.add('display__component')
-  feelsLike.classList.add('display__component--feels-like')
+  feelsLike.classList.add('weather__feels-like')
   const feelsLikeTitle = document.createElement('h5')
   feelsLikeTitle.textContent = 'Feels Like'
   const feelsLikeText = document.createElement('p')
@@ -23,8 +21,7 @@ function ui(data) {
   feelsLike.append(feelsLikeTitle, feelsLikeText)
 
   const wind = document.createElement('div')
-  wind.classList.add('display__component')
-  wind.classList.add('display__component--wind')
+  wind.classList.add('weather__wind')
   const windTitle = document.createElement('h5')
   windTitle.textContent = 'Wind Speed'
   const windText = document.createElement('p')
@@ -32,8 +29,7 @@ function ui(data) {
   wind.append(windTitle, windText)
 
   const precip = document.createElement('div')
-  precip.classList.add('display__component')
-  precip.classList.add('display__component--precip')
+  precip.classList.add('weather__precip')
   const precipTitle = document.createElement('h5')
   precipTitle.textContent = 'Precipitation'
   const precipText = document.createElement('p')
@@ -41,8 +37,7 @@ function ui(data) {
   precip.append(precipTitle, precipText)
 
   const uv = document.createElement('div')
-  uv.classList.add('display__component')
-  uv.classList.add('display__component--uv')
+  uv.classList.add('weather__uv')
   const uvTitle = document.createElement('h5')
   uvTitle.textContent = 'UV Index'
   const uvText = document.createElement('p')
@@ -50,20 +45,40 @@ function ui(data) {
   uv.append(uvTitle, uvText)
 
   const humidity = document.createElement('div')
-  humidity.classList.add('display__component')
-  humidity.classList.add('display__component--humidity')
+  humidity.classList.add('weather__humidity')
   const humidityTitle = document.createElement('h5')
   humidityTitle.textContent = 'Humidity'
   const humidityText = document.createElement('p')
   humidityText.textContent = `${current.humidity}%`
   humidity.append(humidityTitle, humidityText)
 
-  const dayForecast = document.createElement('div')
-  dayForecast.classList.add('display__component')
-  dayForecast.classList.add('display__component--forecast')
-  dayForecast.textContent = `Forecast: ${forecast.forecastday[0].day.maxtemp_c}°C`
+  const vis = document.createElement('div')
+  vis.classList.add('weather__vis')
+  const visTitle = document.createElement('h5')
+  visTitle.textContent = 'Visibility'
+  const visText = document.createElement('p')
+  visText.textContent = `${current.vis_km}km`
+  vis.append(visTitle, visText)
 
-  container.append(temp, feelsLike, wind, precip, uv, humidity, dayForecast)
+  const dayForecast = document.createElement('div')
+  dayForecast.classList.add('weather__forecast')
+  const forecastTitle = document.createElement('h5')
+  forecastTitle.textContent = 'Three Day Forecast'
+  for (const day of forecast.forecastday) {
+    console.log(`${day.date}`)
+  }
+  dayForecast.append(forecastTitle)
+
+  container.append(
+    temp,
+    feelsLike,
+    wind,
+    precip,
+    uv,
+    humidity,
+    vis,
+    dayForecast,
+  )
 
   return container
 }
