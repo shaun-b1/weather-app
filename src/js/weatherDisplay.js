@@ -1,3 +1,5 @@
+import { forecastDisplay } from './forecastDisplay'
+
 export { ui }
 
 function ui(data) {
@@ -65,7 +67,8 @@ function ui(data) {
   const forecastTitle = document.createElement('h5')
   forecastTitle.textContent = 'Three Day Forecast'
   for (const day of forecast.forecastday) {
-    console.log(`${day.date}`)
+    const dayContainer = forecastDisplay(day)
+    dayForecast.appendChild(dayContainer)
   }
   dayForecast.append(forecastTitle)
 
