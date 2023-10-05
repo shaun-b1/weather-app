@@ -1,8 +1,8 @@
 import { forecastDisplay } from './forecastDisplay'
 
-export { ui }
+export { weatherDisplay }
 
-function ui(data) {
+function weatherDisplay(data) {
   const { current, location, forecast } = data
 
   const container = document.createElement('section')

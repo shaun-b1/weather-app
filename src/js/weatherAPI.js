@@ -1,4 +1,5 @@
-import { ui } from './weatherDisplay'
+import { weatherDisplay } from './weatherDisplay'
+import { setBackground } from './setBackground'
 export { askWeatherAPI, displayResults }
 
 async function askWeatherAPI(e) {
@@ -24,6 +25,6 @@ function displayResults(data) {
   if (document.querySelector('.weather')) {
     document.querySelector('.weather').remove()
   }
-  console.log(data)
-  document.body.appendChild(ui(data))
+  setBackground(data.current.condition.code)
+  document.body.appendChild(weatherDisplay(data))
 }
