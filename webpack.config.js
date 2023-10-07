@@ -13,7 +13,7 @@ module.exports = {
   devtool: 'inline-source-map',
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Development',
+      title: 'Weather App',
     }),
   ],
   watch: process.argv.indexOf('--watch') > -1,
