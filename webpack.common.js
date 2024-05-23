@@ -1,22 +1,18 @@
+/* eslint-disable no-undef */
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  mode: 'development',
   context: path.resolve(__dirname, 'src'),
-  entry: {
-    weatherDisplay: './js/weatherDisplay.js',
-    weatherAPI: './js/weatherAPI.js',
-    form: './js/form.js',
-    index: './js/index.js',
-  },
-  devtool: 'inline-source-map',
+  entry: './js/index.js',
+
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Weather App',
+      template: './index.html',
+      filename: 'index.html',
     }),
   ],
-  watch: process.argv.indexOf('--watch') > -1,
   module: {
     rules: [
       {
@@ -50,7 +46,7 @@ module.exports = {
     ],
   },
   output: {
-    filename: './js/[name].bundle.js',
+    filename: './js/[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },

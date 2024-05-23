@@ -1,4 +1,3 @@
-export { setBackground }
 import '../assets/backgrounds/fog_mist.png'
 import '../assets/backgrounds/heavy_rain.png'
 import '../assets/backgrounds/heavy_snow.png'
@@ -8,7 +7,7 @@ import '../assets/backgrounds/overcast.png'
 import '../assets/backgrounds/storm.png'
 import '../assets/backgrounds/sunny.png'
 
-function setBackground(cond_code) {
+export function setBackground(cond_code) {
   const code = cond_code
 
   switch (code) {

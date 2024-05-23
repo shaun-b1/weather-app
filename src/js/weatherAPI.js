@@ -1,8 +1,7 @@
 import { weatherDisplay } from './weatherDisplay'
 import { setBackground } from './setBackground'
-export { askWeatherAPI, displayResults }
 
-async function askWeatherAPI(e) {
+export async function askWeatherAPI(e) {
   const searchInput = document.getElementById('search__bar')
 
   e.preventDefault()
@@ -21,7 +20,7 @@ async function askWeatherAPI(e) {
   }
 }
 
-function displayResults(data) {
+export function displayResults(data) {
   if (document.querySelector('.weather')) {
     document.querySelector('.weather').remove()
   }

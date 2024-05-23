@@ -1,8 +1,6 @@
-export { forecastDisplay }
-
 import { format, parseISO } from 'date-fns'
 
-function forecastDisplay(day) {
+export function forecastDisplay(day) {
   const dayContainer = document.createElement('div')
   dayContainer.classList.add('forecast')
   const dayTitle = document.createElement('h6')

@@ -1,7 +1,6 @@
 import { askWeatherAPI } from './weatherAPI'
-export { form }
 
-function form() {
+export function form() {
   const searchSection = document.createElement('section')
   searchSection.classList.add('search')
 
