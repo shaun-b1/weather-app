@@ -1,8 +1,0 @@
-node_modules/
-dist/
-coverage/
-.codecatalyst/
-.husky/
-.DS_Store
-.env
-.eslintcache
